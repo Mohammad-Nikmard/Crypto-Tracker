@@ -168,63 +168,65 @@ class CryptoList extends StatelessWidget {
         color: MyColors.greenColor,
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
-          child: ListView.builder(itemBuilder: (context, index) {
-            return ListTile(
-              trailing: SizedBox(
-                width: 122,
-                height: 45,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView.builder(
+              itemCount: cryptoList.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  trailing: SizedBox(
+                    width: 122,
+                    height: 45,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
-                          cryptoList[index].price!.toStringAsFixed(2),
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: MyColors.greyColor,
-                          ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              cryptoList[index].price!.toStringAsFixed(2),
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: MyColors.greyColor,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              "${(cryptoList[index].changePercent24Hr!.convertToColor() == MyColors.greenColor) ? "+" : ""}${cryptoList[index].changePercent24Hr!.toStringAsFixed(2)}",
+                              style: TextStyle(
+                                color: cryptoList[index]
+                                    .changePercent24Hr!
+                                    .convertToColor(),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 4),
-                        Text(
-                          "${(cryptoList[index].changePercent24Hr!.convertToColor() == MyColors.greenColor) ? "+" : ""}${cryptoList[index].changePercent24Hr!.toStringAsFixed(2)}",
-                          style: TextStyle(
-                            color: cryptoList[index]
-                                .changePercent24Hr!
-                                .convertToColor(),
-                          ),
-                        ),
+                        const SizedBox(width: 25),
+                        cryptoList[index].changePercent24Hr!.convertToIcon(),
                       ],
                     ),
-                    const SizedBox(width: 25),
-                    cryptoList[index].changePercent24Hr!.convertToIcon(),
-                  ],
-                ),
-              ),
-              subtitle: Text(
-                cryptoList[index].symbol!,
-                style: const TextStyle(
-                  color: MyColors.greenColor,
-                  fontSize: 16,
-                ),
-              ),
-              title: Text(
-                cryptoList[index].id!,
-                style: const TextStyle(
-                  color: MyColors.greyColor,
-                  fontSize: 18,
-                ),
-              ),
-              leading: Text(
-                cryptoList[index].rank!,
-                style: const TextStyle(
-                  color: MyColors.greyColor,
-                ),
-              ),
-            );
-          }),
+                  ),
+                  subtitle: Text(
+                    cryptoList[index].symbol!,
+                    style: const TextStyle(
+                      color: MyColors.greenColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                  title: Text(
+                    cryptoList[index].id!,
+                    style: const TextStyle(
+                      color: MyColors.greyColor,
+                      fontSize: 18,
+                    ),
+                  ),
+                  leading: Text(
+                    cryptoList[index].rank!,
+                    style: const TextStyle(
+                      color: MyColors.greyColor,
+                    ),
+                  ),
+                );
+              }),
         ),
       ),
     );
