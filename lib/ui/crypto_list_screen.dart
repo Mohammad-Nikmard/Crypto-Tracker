@@ -173,7 +173,7 @@ class CryptoList extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   trailing: SizedBox(
-                    width: 122,
+                    width: 135,
                     height: 45,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -182,12 +182,24 @@ class CryptoList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              cryptoList[index].price!.toStringAsFixed(2),
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: MyColors.greyColor,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  cryptoList[index].price!.toStringAsFixed(2),
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: MyColors.greyColor,
+                                  ),
+                                ),
+                                const SizedBox(width: 3),
+                                const Text(
+                                  "\$",
+                                  style: TextStyle(
+                                    color: MyColors.greenColor,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(height: 4),
                             Text(
