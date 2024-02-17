@@ -1,16 +1,9 @@
-# crypto_baazar
+# Crypto-tacker
 
-A new Flutter project.
+![mockup](assets/mockup.png)
 
-## Getting Started
+## Overview 
 
-This project is a starting point for a Flutter application.
+This is a crypto tracker app that fetches data from api and lists all the available coins with the precise price, rank, label, last 24H change, and change percentage during last 24H and shows wether the specific coin is in downtrend or uptrend respectively. The user has the ablity to search among the list and get the results. The project has been written with pure dart language and Bloc state management has been used to handle the structure of the project.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Packages Used 
